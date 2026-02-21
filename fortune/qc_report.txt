@@ -1,0 +1,36 @@
+Quality Control Report
+======================================================================
+
+Total entries processed: 84
+Successfully  parsed quotes: 80
+URL-only entries: 4
+Unparseable entries: 0
+
+Success rate: 80/84 (95.2%)
+
+Details:
+----------------------------------------------------------------------
+Quotes with author attribution: 80
+Standalone URLs: 4
+Failed to parse: 0
+
+Parser Notes:
+- Successfully parsed all quote formats:
+  * Single-line quotes with '--' separator
+  * Single-line quotes with '–' (em-dash) separator  
+  * Multi-line poetry with author attribution on separate line
+  * Quotes ending with ' - Author' pattern
+- Email trailing whitespace normalized
+- All author names preserved as provided in source
+- Formatting and line breaks within quotes preserved
+
+URL Entries (not included in main output):
+- http://en.wikiquote.org/wiki/Leadership
+- http://xkcd.com/538/
+- http://www.devtopics.com/101-great-computer-programming-quotes/
+- http://www.bash.org/ (multiple citations)
+
+Output files generated:
+- fortune/quotes: 80 entries in Linux fortune format (% delimited)
+- fortune/qc_report.txt: This quality control report
+- fortune/unparseable.txt: Error report (empty - all entries parsed successfully)

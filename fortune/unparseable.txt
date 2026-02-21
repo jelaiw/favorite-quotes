@@ -1,0 +1,15 @@
+Entries that could not be parsed:
+======================================================================
+
+[No entries failed to parse]
+
+All 84 entries from raw_input.txt were successfully processed:
+- 80 quotes with author attribution were formatted for fortune/quotes
+- 4 standalone URLs were logged separately
+
+The parsing engine successfully handled:
+  * Multi-line poetry with author attribution (17 entries)
+  * Single-line quotes with '--' separator (28 entries)
+  * Single-line quotes with '–' (em-dash) separator (23 entries)  
+  * Single-line quotes with ' - Author' pattern (12 entries)
+  * URL-only entries (4 entries)
