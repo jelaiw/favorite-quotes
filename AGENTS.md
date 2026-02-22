@@ -1,7 +1,7 @@
 ## Input Data
 I have collected my favorite quotes in a text file of semi-structured but mixed format.
 * All of these quotes were manually copy and pasted into this file with the quote text first _optionally_ followed by the author (or some other reference to the source material).
-* Some quotes do not have an author or any attribution. These should be included in the cleaned data.
+* Most quotes do have an author or some attribution.
 * Many of the quotes are contained on a single line while others are multi-line with some attempt to preserve whitespace for readability. 
 * Some are just links (usually as a URL meant for visiting from a web browser) to online quotes hosted elsewhere. These should be included in the cleaned data.
 * The name of the file that contains these data is `raw_input.txt`.
