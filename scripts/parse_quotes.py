@@ -171,6 +171,51 @@ def main():
 
     entries = final_entries
 
+    # ------------------------------------------------------------------
+    # Post-process entries to ensure any inline attribution is placed on a
+    # separate line.  The original parsing sometimes left an author or
+    # source at the end of a quote, e.g. "... plans -- John Lennon".  The
+    # user has asked that attributions live on their own line, which also
+    # makes the fortune file easier to read and edit manually later.
+    #
+    # We operate on the last non-empty line of each entry and look for a
+    # few common patterns:
+    #   * trailing dash/double-dash/em‑dash followed by a name
+    #   * a parenthesised name at the end of the line
+    #
+    # When we detect one of those patterns we split the line, leaving the
+    # quote text behind and appending a new line containing only the
+    # attribution (including its leading punctuation).
+    def separate_attribution(e: str) -> str:
+        lines = e.splitlines()
+        if not lines:
+            return e
+        last = lines[-1]
+
+        # pattern: ... <space>[-–—]{1,2} <optional space>Author
+        m = re.match(r"^(.*\S)\s+([\-–—]{1,2})\s*(\S.*)$", last)
+        if m:
+            quote_part = m.group(1)
+            dash = m.group(2)
+            author = m.group(3)
+            lines[-1] = quote_part
+            # preserve the dash in the attribution line
+            lines.append(f"{dash} {author}")
+            return "\n".join(lines)
+
+        # pattern: ... (Author)
+        m = re.match(r"^(.*\S)\s*\(([^)]+)\)\s*$", last)
+        if m:
+            quote_part = m.group(1)
+            author = m.group(2)
+            lines[-1] = quote_part
+            lines.append(f"({author})")
+            return "\n".join(lines)
+
+        return e
+
+    entries = [separate_attribution(e) for e in entries]
+
     # Write fortune file (records separated by a line containing a single %)
     with OUT_FILE.open("w", encoding="utf-8") as f:
         for i, e in enumerate(entries):

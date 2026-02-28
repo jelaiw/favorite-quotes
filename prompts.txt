@@ -21,3 +21,5 @@ Update `.github/copilot-instructions.md` for the user, then ask for feedback on 
 The parsing logic could be improved. For example lines 1-21 is a single quote (actually a poem by William Ernest Henley). Every line between lines 69-132 appears to be a separate quote. Please try again.
 
 Much improved. I checked the output. The following should be corrected: lines 62 and 63 are separate quotes. Line 81 is actually a quote and a separate URL. Lines 197 and 198 are separate quotes. Lines 212-214 are a single quote.
+
+Act as a data engineer with specific expertise in parsing, cleaning up, and reformatting flat files. The file @fortune/quotes is in Linux fortune file format. Many but not all of the quotes in this file have an attribution. Please reformat the quotes such that the attribution (usually author) is on a separate line.
