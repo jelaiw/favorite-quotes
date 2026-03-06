@@ -1,3 +1,8 @@
+## Overview
+A small data cleaning experiment.
+
+Blogged about it [here](https://jelaiw.github.io/blog/2026/03/01/quotes-data.html).
+
 ## Demo
 Install `fortune` via package manager.
 
@@ -64,7 +69,6 @@ Longest string: 707 bytes
 Shortest string: 21 bytes
 $
 ```
-
 Quick test.
 
 ```
